@@ -1,0 +1,45 @@
+@import url("observablehq:default.css");
+@import url("observablehq:theme-air.css");
+
+details-group {
+    border: 1px solid gray;
+    background: gray;
+    display: grid;
+    gap: 1px;
+    max-inline-size: max-content;
+
+    & details {
+        padding-inline-start: .5rem;
+        background: Canvas;
+    }
+}
+
+details {
+  --_duration: .2s;
+  inline-size: 50ch;
+  
+  @media (prefers-reduced-motion: no-preference) {
+    interpolate-size: allow-keywords;
+  }
+  
+  &::details-content {
+    opacity: 0;
+    block-size: 0;
+    overflow-y: clip; 
+    transition: content-visibility var(--_duration) allow-discrete,
+                opacity var(--_duration),
+                block-size var(--_duration);
+  }
+  
+  &[open]::details-content {
+    opacity: 1;
+    block-size: auto;
+  }
+
+  & summary { font-weight: bold; }
+
+  & P {
+    margin-inline-start: 1rem;
+    margin-block: 0;
+  }
+}
