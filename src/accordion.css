@@ -2,16 +2,15 @@
 @import url("observablehq:theme-air.css");
 
 details-group {
-    border: 1px solid gray;
-    background: gray;
-    display: grid;
-    gap: 1px;
-    max-inline-size: max-content;
+  display: grid;
+  gap: 12px;
+  max-inline-size: max-content;
 
-    & details {
-        padding-inline-start: .5rem;
-        background: Canvas;
-    }
+  & details {
+    background: Canvas;
+    border: 2px solid tomato;
+    border-radius: 8px;;
+  }
 }
 
 details {
@@ -36,10 +35,58 @@ details {
     block-size: auto;
   }
 
-  & summary { font-weight: bold; }
+  & summary {
+    --padding: 12px;
+
+    position: relative;
+    padding: var(--padding);
+    padding-inline-start: calc(.5rem + var(--padding));
+    font-weight: bold;
+    background-color: hsl(from tomato h s l / .1);
+    anchor-name: --summary;
+
+    &::marker {
+      content: "";
+    }
+
+    details[open] & {
+      border-bottom: 2px solid tomato;
+
+      &::after {
+        transform: rotate(0deg);
+      }
+    }
+
+    &::before,
+    &::after {
+      /* Custom marker dimensions */
+      content: "";
+      border-block-start: 3px solid orangered;
+      height: 0;
+      width: 1rem;
+      
+      /* Positions the lines */
+      inset-block-start: 50%;
+      inset-inline-end: calc(12px + .5rem);
+      
+      /* Anchor the shape to the summary */
+      position: absolute;
+      position-anchor: --summary;
+      position-area: top end;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+      transform-origin: 50%;
+      transition: transform 100ms linear;
+    }
+  }
 
   & P {
-    margin-inline-start: 1rem;
+    --padding: 12px;
+
+    padding: var(--padding);
+    padding-inline: calc(.5rem + var(--padding));
     margin-block: 0;
   }
 }
