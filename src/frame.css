@@ -1,0 +1,40 @@
+@import url("observablehq:default.css");
+@import url("observablehq:theme-air.css");
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+hero-frame {
+	--frame-bg: #fff;
+	--frame-accent: #31d0fa;
+	--frame-text-color: #fff;
+	--frame-text-alt-color: #fa04aa;
+
+	display: grid;
+	grid-template-columns: 16px 1fr 16px;
+	grid-template-rows: 16px 1fr 16px;
+	border: 1px solid black;
+	width: 400px;
+	height: 800px;
+	background-color: var(--frame-background);
+
+	&::before {
+		content: "";
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+		background: var(--frame-accent);
+	}
+
+	& header {
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+
+		& .primary {
+			font-family: "Anton", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 190px;
+			line-height: 1;
+			color: var(--frame-text-color);
+			text-transform: uppercase;
+		}
+	}
+}
