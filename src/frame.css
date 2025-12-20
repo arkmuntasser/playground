@@ -1,6 +1,8 @@
 @import url("observablehq:default.css");
 @import url("observablehq:theme-air.css");
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Keania+One&display=swap&text=AMIR');
+@import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap&text=@arkmuntasser');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap&text=امير');
 
 hero-frame {
 	--frame-bg: #fff;
@@ -9,32 +11,84 @@ hero-frame {
 	--frame-text-alt-color: #fa04aa;
 
 	display: grid;
-	grid-template-columns: 16px 1fr 16px;
+	grid-template-columns: 16px 1fr 1fr 16px;
 	grid-template-rows: 16px 1fr 16px;
-	border: 1px solid black;
-	width: 400px;
-	height: 800px;
+	/* border: 1px solid black; */
+	width: 480px;
+	height: 90vh;
 	background-color: var(--frame-background);
+	container-type: inline-size;
 
 	&::before {
 		content: "";
-		grid-column: 2 / 3;
+		grid-column: 2 / 4;
 		grid-row: 2 / 3;
 		background: var(--frame-accent);
 	}
 
 	& header {
-		grid-column: 2 / 3;
-		grid-row: 2 / 3;
+		grid-column: 1 / -1;
+		grid-row: 1 / 3;
+		display: grid;
+		grid-template-columns: 16px 1fr 1fr 16px;
+		grid-template-rows: 16px 1fr 16px;
+		height: 284px;
+
+		& h1 {
+			display: contents;
+			container-type: inline-size;
+		}
 
 		& .primary {
-			font-family: "Anton", sans-serif;
+			grid-column: 1 / -1;
+			grid-row: 1 / -1;
+			margin-top: 6px;
+			display: inline-block;
+			font-family: "Keania One", sans-serif;
 			font-weight: 400;
 			font-style: normal;
-			font-size: 190px;
-			line-height: 1;
+			font-size: 214px;
+			/* font-size: 50cqi; */
 			color: var(--frame-text-color);
 			text-transform: uppercase;
+			letter-spacing: -16px;
+			text-box-trim: trim-both;
+			text-box-edge: cap alphabetic;
+			scale: 100% 180%;
+			transform-origin: top center;
+			z-index: 1;
+		}
+
+		& .secondary {
+			grid-column: 3 / -1;
+			grid-row: 3 / -1;
+			display: inline-block;
+			z-index: 10;
+			align-self: self-end;
+			font-family: "Freehand", cursive;
+			font-size: 32px;
+			color: var(--frame-text-alt-color);
+			text-align: right;
+		}
+
+		& .arabic-name {
+			z-index: 1000;
+			rotate: -90deg;
+			writing-mode: rl;
+			text-align: right;
+			transform-origin: top right;
+			grid-column: 1;
+			grid-row: 1;
+			margin: 0;
+			padding: 0;
+			font-size: 200px;
+			justify-self: end;
+			text-box-trim: trim-both;
+			text-box-edge: cap alphabetic;
+			color: var(--frame-text-alt-color);
+			padding-right: 64px;
+			font-family: "Tajawal", sans-serif;
+  		font-weight: 700;
 		}
 	}
 }

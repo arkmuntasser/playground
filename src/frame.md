@@ -8,7 +8,8 @@ style: frame.css
 	<header>
 		<h1>
 			<span class="primary">Amir</span>
-			<!-- <span class="secondary">R Muntasser</span> -->
+			<span class="secondary">@arkmuntasser</span>
 		</h1>
+		<p class="arabic-name">امير</p>
 	</header>
 </hero-frame>
